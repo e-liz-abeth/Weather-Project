@@ -1,0 +1,103 @@
+h6 {
+  color: white;
+  margin-left: 45px;
+}
+ul {
+  list-style: none;
+  padding: 2px;
+  font-size: 12px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+h1 sup {
+  font-size: 15px;
+  position: relative;
+  top: -25px;
+}
+.container {
+  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  border-radius: 20px;
+  font-family: "Karla", sans-serif;
+  max-width: 650px;
+  margin-top: 50px;
+}
+.current-city {
+  background-color: rgb(255, 255, 255, 0.8);
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  height: 160px;
+  width: 480px;
+}
+.current-city h1 {
+  font-size: 47px;
+  margin-bottom: 0;
+}
+.climate {
+  font-size: 14px;
+}
+.description {
+  font-size: 15px;
+}
+.input-group {
+  margin: auto;
+}
+.nav-search {
+  position: relative;
+  display: block;
+  margin: auto;
+  margin-left: 50px;
+  padding: 20px;
+  max-width: 550px;
+}
+.searchbar {
+  width: 250px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+}
+.search-button,
+.search-current {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  color: #acb0ba;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  padding: 5px;
+  transition: all 150ms ease-in-out;
+}
+.search-button:hover {
+  background-color: #acb0ba;
+  color: white;
+}
+.search-current:hover {
+  background-color: #acb0ba;
+  color: white;
+}
+.weather-details {
+  line-height: 18px;
+}
+.weekday-forecast {
+  max-width: 500px;
+  text-align: center;
+}
+.weekday-temp {
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 10px;
+  height: 90px;
+  margin: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.temp {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.temp-now {
+  font-size: 45px;
+}
+
+/* Maybe add date?, Look for other fonts, add a background changer, change icons! */
