@@ -99,5 +99,9 @@ h1 sup {
 .temp-now {
   font-size: 45px;
 }
-
+.code-footer {
+  color: #a0bcc2;
+  font-size: 13px;
+  text-align: center;
+}
 /* Maybe add date?, Look for other fonts, add a background changer, change icons! */
