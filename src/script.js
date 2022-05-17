@@ -32,8 +32,11 @@ function displayWeatherCondition(response) {
   let windElement = document.querySelector("#windSpeed");
   let descriptionElement = document.querySelector("#weatherDescription");
   let iconElement = document.querySelector("#weatherIcon");
+
+  celsiusTemperature = response.data.main.temp;
+
   cityElement.innerHTML = response.data.name;
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  temperature.innerHTML = Math.round(celsiusTemperature);
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -43,13 +46,13 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-
+// start to search for city//
 function searchCity(city) {
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
-// start to search for city//
+
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
@@ -78,18 +81,20 @@ currentLocationButton.addEventListener("click", displayCurrentLocation);
 function changeCelsius(event) {
   let cTemp = document.querySelector(".temp-now");
   event.preventDefault();
-  cTemp.innerHTML = "21";
+  cTemp.innerHTML = Math.round(celsiusTemperature);
 }
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", changeCelsius);
 
 function changeFahrenheit(event) {
-  let fTemp = document.querySelector(".temp-now");
   event.preventDefault();
-  fTemp.innerHTML = "67";
+  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  let fTemp = document.querySelector(".temp-now");
+  fTemp.innerHTML = Math.round(fahrenheit);
 }
-
+let celsiusTemperature = null;
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeFahrenheit);
+
 searchCity("Madrid");

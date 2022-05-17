@@ -101,4 +101,10 @@ h1 sup {
   font-size: 13px;
   text-align: center;
 }
+#celsius {
+  text-decoration: none;
+}
+#fahrenheit {
+  text-decoration: none;
+}
 /* Maybe add date?, Look for other fonts, add a background changer, change icons! */
