@@ -51,8 +51,6 @@ h1 sup {
   max-width: 550px;
 }
 .searchbar {
-  width: 250px;
-  height: 30px;
   border: none;
   border-radius: 10px;
 }
@@ -60,12 +58,12 @@ h1 sup {
 .search-current {
   background-color: white;
   border: none;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   color: #acb0ba;
   display: block;
-  width: 100%;
+  /* width: 100%; */
   font-size: 15px;
-  padding: 5px;
+  /* padding: 5px; */
   transition: all 150ms ease-in-out;
 }
 .search-button:hover {
