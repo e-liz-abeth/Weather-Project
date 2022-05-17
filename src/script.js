@@ -23,7 +23,7 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-// search city //
+//  city temp //
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector(".searched-city");
   let temperature = document.querySelector(".temp-now");
@@ -31,13 +31,17 @@ function displayWeatherCondition(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#windSpeed");
   let descriptionElement = document.querySelector("#weatherDescription");
-
+  let iconElement = document.querySelector("#weatherIcon");
   cityElement.innerHTML = response.data.name;
   temperature.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = Math.round(response.data.main.humidity);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   descriptionElement.innerHTML = response.data.weather[0].description;
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function searchCity(city) {
