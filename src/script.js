@@ -1,26 +1,32 @@
 // current date and time///
-let now = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-let currentDay = days[now.getDay()];
-
-let currentHour = now.getHours();
-if (currentHour < 10) {
-  currentHour = `0${currentHour}`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  return `${day} | ${hours}:${minutes}`;
 }
-let currentMinutes = now.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${currentMinutes}`;
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
-
-let todayIs = `${currentDay} | ${currentHour}:${currentMinutes}`;
-let dateAndTime = document.querySelector(".date-Now");
-
-dateAndTime.innerHTML = todayIs;
 
 // search city //
 function displayWeatherCondition(response) {
-  console.log(response.data);
+  let dateAndTime = document.querySelector(".date-Now");
+
   document.querySelector(".searched-city").innerHTML = response.data.name;
   document.querySelector(".temp-now").innerHTML = Math.round(
     response.data.main.temp
@@ -33,6 +39,8 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#weatherDescription").innerHTML =
     response.data.weather[0].description;
+
+  dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchCity(city) {
