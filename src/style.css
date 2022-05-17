@@ -101,9 +101,7 @@ h1 sup {
   font-size: 13px;
   text-align: center;
 }
-#celsius {
-  text-decoration: none;
-}
+#celsius,
 #fahrenheit {
   text-decoration: none;
 }

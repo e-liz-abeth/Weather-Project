@@ -79,21 +79,23 @@ currentLocationButton.addEventListener("click", displayCurrentLocation);
 
 // C & F link change////
 function changeCelsius(event) {
-  let cTemp = document.querySelector(".temp-now");
   event.preventDefault();
+  let cTemp = document.querySelector(".temp-now");
   cTemp.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", changeCelsius);
-
 function changeFahrenheit(event) {
   event.preventDefault();
+
   let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
   let fTemp = document.querySelector(".temp-now");
   fTemp.innerHTML = Math.round(fahrenheit);
 }
 let celsiusTemperature = null;
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", changeCelsius);
+
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeFahrenheit);
 
