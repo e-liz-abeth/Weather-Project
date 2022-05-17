@@ -25,21 +25,18 @@ function formatDay(timestamp) {
 
 // search city //
 function displayWeatherCondition(response) {
+  let cityElement = document.querySelector(".searched-city");
+  let temperature = document.querySelector(".temp-now");
   let dateAndTime = document.querySelector(".date-Now");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#windSpeed");
+  let descriptionElement = document.querySelector("#weatherDescription");
 
-  document.querySelector(".searched-city").innerHTML = response.data.name;
-  document.querySelector(".temp-now").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#humidity").innerHTML = Math.round(
-    response.data.main.humidity
-  );
-  document.querySelector("#windSpeed").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#weatherDescription").innerHTML =
-    response.data.weather[0].description;
-
+  cityElement.innerHTML = response.data.name;
+  temperature.innerHTML = Math.round(response.data.main.temp);
+  humidityElement.innerHTML = Math.round(response.data.main.humidity);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].description;
   dateAndTime.innerHTML = formatDate(response.data.dt * 1000);
 }
 
