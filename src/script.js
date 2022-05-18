@@ -46,7 +46,7 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-// start to search for city//
+//search for city//
 function searchCity(city) {
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
