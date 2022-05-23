@@ -6,9 +6,9 @@ ul {
   margin-bottom: 30px;
 }
 h1 sup {
-  font-size: 15px;
+  font-size: 20px;
   position: relative;
-  top: -25px;
+  top: -15px;
 }
 .container {
   background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
@@ -18,12 +18,13 @@ h1 sup {
   margin-top: 50px;
 }
 .current-city {
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: teal;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   height: 160px;
   width: 480px;
+  color: white;
 }
 .current-city h1 {
   font-size: 47px;
@@ -33,7 +34,7 @@ h1 sup {
   font-size: 14px;
 }
 .description {
-  font-size: 15px;
+  font-size: 18px;
 }
 .input-group {
   margin: auto;
@@ -51,6 +52,8 @@ h1 sup {
 }
 .search-button,
 .search-current {
+  position: relative;
+  left: -15px;
   background-color: white;
   border: none;
   color: #acb0ba;
@@ -73,18 +76,22 @@ h1 sup {
   max-width: 500px;
   text-align: center;
 }
+.weather-icon {
+  position: relative;
+  top: -20px;
+}
 .weekday-temp {
-  background-color: rgb(255, 255, 255, 0.8);
+  background-color: teal;
   border-radius: 10px;
   height: 90px;
   margin: 8px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 0;
+  color: white;
 }
 .temp {
-  margin-top: 5px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .temp-now {
   font-size: 45px;
@@ -94,8 +101,5 @@ h1 sup {
   font-size: 13px;
   text-align: center;
 }
-#celsius,
-#fahrenheit {
-  text-decoration: none;
-}
+
 /* Maybe add date?, Look for other fonts, add a background changer, change icons! */

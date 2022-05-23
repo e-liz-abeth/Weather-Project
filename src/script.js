@@ -26,11 +26,11 @@ function formatDay(timestamp) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
-
+// display week forecast- use index to display # of days //
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -46,7 +46,7 @@ function displayForecast(response) {
                 <li>
                   <img src="http://openweathermap.org/img/wn/${
                     forecastDay.weather[0].icon
-                  }@2x.png" class="temp-icon" alt="sun icon" width="30px" />
+                  }@2x.png" class="temp-icon" alt="sun icon" width="40px" />
                 </li>
                 <li class="temp"><span class="temp-max">${Math.round(
                   forecastDay.temp.max
@@ -89,7 +89,7 @@ function displayWeatherCondition(response) {
 //search for city//
 function searchCity(city) {
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -106,7 +106,7 @@ searchInput.addEventListener("submit", handleSubmit);
 
 function searchLocation(position) {
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 function displayCurrentLocation(event) {
@@ -118,24 +118,14 @@ let currentLocationButton = document.querySelector("#currentButton");
 currentLocationButton.addEventListener("click", displayCurrentLocation);
 
 // C & F link change////
-function changeCelsius(event) {
-  event.preventDefault();
-  let cTemp = document.querySelector(".temp-now");
-  cTemp.innerHTML = Math.round(celsiusTemperature);
-}
 
 function changeFahrenheit(event) {
   event.preventDefault();
 
-  let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
+  // let fahrenheit = (celsiusTemperature * 9) / 5 + 32;
   let fTemp = document.querySelector(".temp-now");
   fTemp.innerHTML = Math.round(fahrenheit);
 }
-let celsiusTemperature = null;
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", changeCelsius);
-
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeFahrenheit);
 
