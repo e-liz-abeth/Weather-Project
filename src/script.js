@@ -32,30 +32,35 @@ function getForecast(coordinates) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-
   let forecastHTML = `<div class="row d-flex justify-content-center">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 weekday-temp">
-              <span class="temp-day">${day}</span>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2 weekday-temp">
+              <span class="temp-day">${formatDay(forecastDay.dt)}</span>
               <ul>
                 <li>
-                  <img src="media/sunny.png" class="temp-icon" alt="sun icon" width="30px" />
+                  <img src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png" class="temp-icon" alt="sun icon" width="30px" />
                 </li>
-                <li class="temp"><span class="temp-max">31°/</span> <span class="temp-min">13°</span></li>
+                <li class="temp"><span class="temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}°/</span> <span class="temp-min">${Math.round(
+          forecastDay.temp.min
+        )}°</span></li>
               </ul>
             </div>`;
+    }
   });
 
   forecastastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
 //  city temp //
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector(".searched-city");
