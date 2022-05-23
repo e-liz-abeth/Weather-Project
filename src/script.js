@@ -22,7 +22,7 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-// Forcast API //
+// Forecast API //
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "49b0d838d550d9b7e859b7302af4e85c";
@@ -31,8 +31,10 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
+
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
 
   let forecastHTML = `<div class="row d-flex justify-content-center">`;
@@ -49,6 +51,7 @@ function displayForecast() {
               </ul>
             </div>`;
   });
+
   forecastastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -132,4 +135,3 @@ let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeFahrenheit);
 
 searchCity("Madrid");
-displayForecast();
