@@ -5,20 +5,22 @@ ul {
   margin: 0;
   margin-bottom: 30px;
 }
-h1 sup {
+sup {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   position: relative;
   top: -15px;
 }
 .container {
-  background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+  background: #b1c1a3;
   border-radius: 20px;
   font-family: "Karla", sans-serif;
   max-width: 650px;
   margin-top: 50px;
 }
 .current-city {
-  background-color: teal;
+  border: 2px solid white;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
@@ -48,26 +50,28 @@ h1 sup {
   max-width: 580px;
 }
 .searchbar {
-  border: none;
+  border: 1px solid white;
 }
 .search-button,
 .search-current {
   position: relative;
   left: -15px;
   background-color: white;
-  border: none;
-  color: #acb0ba;
+  border: 1px solid white;
+  color: #e3ba87;
   display: block;
   font-size: 15px;
   transition: all 150ms ease-in-out;
 }
 .search-button:hover {
-  background-color: #acb0ba;
+  background-color: #e3ba87;
   color: white;
+  border: none;
 }
 .search-current:hover {
-  background-color: #acb0ba;
+  background-color: #e3ba87;
   color: white;
+  border: none;
 }
 .weather-details {
   line-height: 18px;
@@ -81,13 +85,13 @@ h1 sup {
   top: -20px;
 }
 .weekday-temp {
-  background-color: teal;
+  border: 2px solid white;
   border-radius: 10px;
-  height: 90px;
+  height: 100px;
   margin: 8px;
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 0;
+  padding: 5px;
   color: white;
 }
 .temp {
@@ -96,8 +100,15 @@ h1 sup {
 .temp-now {
   font-size: 45px;
 }
+.title {
+  position: relative;
+  color: white;
+  font-family: "Dekko", cursive;
+  font-size: 20px;
+  line-height: 15px;
+}
 .code-footer {
-  color: #a0bcc2;
+  color: black;
   font-size: 13px;
   text-align: center;
 }
